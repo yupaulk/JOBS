@@ -37,7 +37,7 @@ We have example input data [here](https://github.com/LidaWangPSU/JOBS/blob/main/
 
 Input includes
 * Effect size: A matrix of eqtls across bulk and single cell, first col: gene-snp pair; second col: bulk effect size; 3+ cols: cell type specific eqtls
-* S.E.: A matrix of eqtls standard deviation across bulk and single cell, first col: gene-snp pair; second col: bulk effect size se; 3+ col: cell type specific eqtls se. S.E. file should be 1-1 match with effect size
+* S.E.: The same dimension matrix of eqtls standard deviation across bulk and single cell, first col: gene-snp pair; second col: bulk effect size se; 3+ col: cell type specific eqtls se. S.E. file should be 1-1 match with effect size
 
 |    Gene-snp pair    | Bulk | Cell type 1 | Cell type 2 | ...... | Cell type k |
 | ------------------- | ---- | ----------- | ----------- | ------ | ----------- |
