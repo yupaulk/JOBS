@@ -49,9 +49,7 @@ jobs_eqtls <- jobs(beta,se)
 ```
 
 ### Output results
-We have three outputs
-
-The weight output includes:
+The output includes:
 * Cell type weights: weights for each cell types
 * Refined effect size: in the same format as effect size input
 * Refined S.E:in the same format as s.e. input
