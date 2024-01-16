@@ -38,10 +38,15 @@ We have example input data [here](https://github.com/LidaWangPSU/JOBS/blob/main/
 Input includes
 * Effect size: A matrix of eqtls across bulk and single cell, first col: gene-snp pair; second col: bulk effect size; 3+ cols: cell type specific eqtls
 * S.E.: A matrix of eqtls standard deviation across bulk and single cell, first col: gene-snp pair; second col: bulk effect size se; 3+ col: cell type specific eqtls se. S.E. file should be 1-1 match with effect size
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | 
 ```
 library(data.table)
 beta <- as.data.frame(fread("~/example_beta_chr22.txt.gz"))
-beta <- as.data.frame(fread("~/example_beta_se_chr22.txt.gz"))
+se <- as.data.frame(fread("~/example_beta_se_chr22.txt.gz"))
 ```
   
 ### Run JOBS
