@@ -31,8 +31,9 @@ library(JOBS)
 Here we go.
 
 ## Quick tutorial
-### Prepare bulk and single cell eQTLs summary statistics (effect size and s.e.). We have example input data [here](https://github.com/LidaWangPSU/JOBS/blob/main/example_data/). 
-Data were subsetted from brain bulk and single cell eQTLs as an example to run the script.
+### Prepare bulk and single cell eQTLs summary statistics (effect size and s.e.). 
+
+We have example input data [here](https://github.com/LidaWangPSU/JOBS/blob/main/example_data/). Data were subsetted from brain bulk and single cell eQTLs as an example to run the script.
 
 Input includes
 * Effect size: A matrix of eqtls across bulk and single cell, first col: gene-snp pair; second col: bulk effect size; 3+ cols: cell type specific eqtls
