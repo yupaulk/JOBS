@@ -1,5 +1,5 @@
 # JOBS
-JOint model viewing Bk-eQTLs as a weighted sum of Sc-eQTLs (JOBS)![image](https://github.com/LidaWangPSU/JOBS/assets/70541830/df17d42c-4a3a-49f7-a418-ee0718be9c63)
+JOint model viewing Bk-eQTLs as a weighted sum of Sc-eQTLs (JOBS)
 
 
 ## Table of contents
