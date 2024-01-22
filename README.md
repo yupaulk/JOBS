@@ -10,7 +10,7 @@ JOint model viewing Bk-eQTLs as a weighted sum of Sc-eQTLs (JOBS)![image](https:
 * [Contact](#Contact)
 
 ## Introduction
-Most variants identified from genome-wide association studies (GWAS) are non-coding and function by regulating gene expression. Yet, many GWAS loci fail to colocalize with expression quantitative trait loci, possibly due to limited power for GWAS and eQTL analysis and cellular heterogeneity of effect sizes. Population-scale single-cell (sc) RNASeq datasets with hundreds of individuals are beginning to emerge where we can group cells into pseudo-bulks to study eQTLs for different cell types (sc-eQTLs). Yet, compared to eQTL data from bulk tissues (bk-eQTLs), sc-eQTL datasets are much smaller. Here, we propose a JOint model viewing Bk-eQTLs as a weighted sum of Sc-eQTLs (JOBS) from constituent cell types. JOBS borrows strength from large sample sizes of bk-eQTLs to improve sc-eQTLs analysis, with improvements bigger for more common cell types. With more accurate sc-eQTLs effect estimates, all integrative analyses can be improved.
+Here, we propose a JOint model viewing Bk-eQTLs as a weighted sum of Sc-eQTLs (JOBS) from constituent cell types. JOBS borrows strength from large sample sizes of bk-eQTLs to improve sc-eQTLs analysis, with improvements bigger for more common cell types. With more accurate sc-eQTLs effect estimates, all integrative analyses can be improved.
  
 It is developed and maintained by Lida Wang at [Dajiang Liu's Group](https://dajiangliu.blog).
 
