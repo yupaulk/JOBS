@@ -85,7 +85,7 @@ weight <-jobs.nnls.weights(beta,se)
 
 
 #### JOBS Step 2: refine eQTLs edtimation 
-- **weights**: K numeric numbers for K cell types, add up to 1.
+- **weight**: K numeric numbers for K cell types, add up to 1.
 ```
 jobs_eqtls <- jobs.eqtls(beta,se,weight)
 ```
