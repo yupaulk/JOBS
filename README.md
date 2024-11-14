@@ -53,7 +53,7 @@ se <- as.data.frame(fread("~/example_beta_se_chr22.txt.gz"))
   
 ### Run JOBS
 ```
-jobs_eqtls <- jobs(beta,se)
+jobs_eqtls <- jobs.eqtls(beta,se)
 ```
 
 ### Output results
