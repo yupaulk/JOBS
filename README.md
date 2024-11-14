@@ -44,6 +44,12 @@ This matrix contains eQTL effect sizes for both bulk and single-cell data.
   - **Column 1**: Gene-SNP pair identifiers.
   - **Column 2**: Bulk effect size.
   - **Columns 3+**: Cell type-specific eQTL effect sizes.
+**Example**:
+|    Gene-snp pair    |      Bulk     | Cell type 1  |  Cell type 2 | ...... |  Cell type k |
+| ------------------- |      ----     | -----------  |  ----------- | ------ |  ----------- |
+| ENSG00000XXXXX-snp1 |      0.65     |      0.55    |      0.30    | ...... |      0.75    |  
+| ENSG00000XXXXX-snp2 |     -0.50     |     -0.62    |     -0.35    | ...... |      0.02    |
+
 
 #### 2. Standard Error Matrix (S.E.)
 This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes.
@@ -52,11 +58,11 @@ This matrix has the same dimensions as the effect size matrix and represents the
   - **Column 1**: Gene-SNP pair identifiers (should match the effect size matrix).
   - **Column 2**: Bulk effect size standard error.
   - **Columns 3+**: Standard errors for the cell type-specific eQTL effect sizes.
-
+**Example**:
 |    Gene-snp pair    |      Bulk     | Cell type 1  |  Cell type 2 | ...... |  Cell type k |
 | ------------------- |      ----     | -----------  |  ----------- | ------ |  ----------- |
-| ENSG00000XXXXX-snp1 | xx(beta or se)|xx(beta or se)|xx(beta or se)| ...... |xx(beta or se)|  
-| ENSG00000XXXXX-snp2 | xx(beta or se)|xx(beta or se)|xx(beta or se)| ...... |xx(beta or se)|
+| ENSG00000XXXXX-snp1 |    0.0071     |    0.0316    |    0.0316    | ...... |    0.0316    |  
+| ENSG00000XXXXX-snp2 |    0.0071     |    0.0316    |    0.0316    | ...... |    0.0316    |
 
 (It is acceptable to have missing data in the input. We will analyze all gene-SNP pairs unless sc-eQTL data is entirely missing for all cell types. In other cases, we will simply ignore the missing values and keep "NA" in the output.)
 
