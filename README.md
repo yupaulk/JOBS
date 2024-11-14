@@ -15,7 +15,7 @@ Here, we propose a JOint model viewing Bk-eQTLs as a weighted sum of Sc-eQTLs (J
 It is developed and maintained by Lida Wang at [Dajiang Liu's Group](https://dajiangliu.blog).
 
 ## Installation
-The package is hosted on github, which allows installation and update to be very easy. First, make sure you have the dplyr, data.table, and tidyr packages installed.
+The package is hosted on github, which allows installation and update to be very easy. First, make sure you have the dplyr, data.table, tidyr, R.utils, pracma, and quadprog packages installed.
 
 ```
 install.packages("devtools")
