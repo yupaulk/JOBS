@@ -28,7 +28,7 @@ Then you could install JOBS from the repository here.
 devtools::install_github("LidaWangPSU/JOBS/JOBS")
 library(JOBS)
 ```
-Here we go.
+
 
 ## Quick tutorial
 ### Prepare bulk and single cell eQTLs summary statistics (effect size and s.e.). 
