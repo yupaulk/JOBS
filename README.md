@@ -35,26 +35,31 @@ library(JOBS)
 
 We have example input data [here](https://github.com/LidaWangPSU/JOBS/blob/main/example_data/). Data were subsetted from brain bulk and single cell eQTLs as an example to run the script.
 
-The input consists of:
+### Input Data Format
 
-(1) Effect size matrix: This matrix captures eQTLs across both bulk and single-cell data. It includes the following columns:
+#### 1. Effect Size Matrix
+This matrix contains eQTL effect sizes for both bulk and single-cell data.
 
-Column 1: Gene-SNP pair identifiers.
-Column 2: Effect size for bulk data.
-Columns 3+: Cell type-specific eQTL effect sizes.
+- **Columns**:
+  - **Column 1**: Gene-SNP pair identifiers.
+  - **Column 2**: Bulk effect size.
+  - **Columns 3+**: Cell type-specific eQTL effect sizes.
 
-(2) Standard error matrix (S.E.): This matrix has the same dimensions as the effect size matrix, representing the standard errors for the corresponding eQTL effect sizes. It includes:
+#### 2. Standard Error Matrix (S.E.)
+This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes.
 
-Column 1: Gene-SNP pair identifiers (matching the effect size matrix).
-Column 2: Standard error of the effect size in bulk data.
-Columns 3+: Standard errors for the cell type-specific eQTL effect sizes.
-
-(It is acceptable to have missing data in the input. We will analyze all gene-SNP pairs unless sc-eQTL data is entirely missing for all cell types. In other cases, we will simply ignore the missing values and keep "NA" in the output.)
+- **Columns**:
+  - **Column 1**: Gene-SNP pair identifiers (should match the effect size matrix).
+  - **Column 2**: Bulk effect size standard error.
+  - **Columns 3+**: Standard errors for the cell type-specific eQTL effect sizes.
 
 |    Gene-snp pair    |      Bulk     | Cell type 1  |  Cell type 2 | ...... |  Cell type k |
 | ------------------- |      ----     | -----------  |  ----------- | ------ |  ----------- |
 | ENSG00000XXXXX-snp1 | xx(beta or se)|xx(beta or se)|xx(beta or se)| ...... |xx(beta or se)|  
 | ENSG00000XXXXX-snp2 | xx(beta or se)|xx(beta or se)|xx(beta or se)| ...... |xx(beta or se)|
+
+(It is acceptable to have missing data in the input. We will analyze all gene-SNP pairs unless sc-eQTL data is entirely missing for all cell types. In other cases, we will simply ignore the missing values and keep "NA" in the output.)
+
 ```
 library(data.table)
 beta <- as.data.frame(fread("~/example_beta_chr22.txt.gz"))
