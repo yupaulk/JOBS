@@ -44,6 +44,7 @@ This matrix contains eQTL effect sizes for both bulk and single-cell data.
   - **Column 1**: Gene-SNP pair identifiers.
   - **Column 2**: Bulk effect size.
   - **Columns 3+**: Cell type-specific eQTL effect sizes.
+ 
 **Example**:
 
 |    Gene-snp pair    |      Bulk     | Cell type 1  |  Cell type 2 | ...... |  Cell type k |
@@ -59,6 +60,7 @@ This matrix has the same dimensions as the effect size matrix and represents the
   - **Column 1**: Gene-SNP pair identifiers (should match the effect size matrix).
   - **Column 2**: Bulk effect size standard error.
   - **Columns 3+**: Standard errors for the cell type-specific eQTL effect sizes.
+
 **Example**:
 
 |    Gene-snp pair    |      Bulk     | Cell type 1  |  Cell type 2 | ...... |  Cell type k |
