@@ -32,10 +32,9 @@ library(JOBS)
 
 
 ## Quick tutorial
-### Prepare bulk and single cell eQTLs summary statistics (effect size and s.e.). 
-### Input Data Format
+### 1. Prepare bulk and single cell eQTLs summary statistics (effect size and s.e.). 
 
-#### 1. Effect Size Matrix
+#### Effect Size Matrix
 This matrix contains eQTL effect sizes for both bulk and single-cell data.
 
 - **Columns**:
@@ -51,7 +50,7 @@ This matrix contains eQTL effect sizes for both bulk and single-cell data.
 | ENSG00000XXXXX-snp2 |     -0.50     |     -0.62    |     -0.35    | ...... |      0.02    |
 
 
-#### 2. Standard Error Matrix (S.E.)
+#### Standard Error Matrix (S.E.)
 This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes.
 
 - **Columns**:
@@ -76,7 +75,7 @@ beta <- as.data.frame(fread("~/example_beta_chr22.txt.gz"))
 se <- as.data.frame(fread("~/example_beta_se_chr22.txt.gz"))
 ```
   
-### Run JOBS
+### 2. Run JOBS
 #### JOBS Step 1: cell type weights
 Here, we used Non-negative least squares to estimate cell type weights.
 You can also specify the weights by yourself, e.g. estimated from scRNAseq data or other methods.
@@ -91,7 +90,7 @@ weight <-jobs.nnls.weights(beta,se)
 jobs_eqtls <- jobs.eqtls(beta,se,weight)
 ```
 
-### Output results
+### 3. Output results
 The output includes:
 * Refined effect size: in the same format as effect size input
 * Refined S.E: in the same format as s.e. input
