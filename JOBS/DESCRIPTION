@@ -15,4 +15,7 @@ Depends:
 Imports:
   dplyr,
   data.table,
-  tidyr
+  tidyr,
+  R.utils,
+  pracma,
+  quadprog
