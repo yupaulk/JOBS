@@ -35,9 +35,19 @@ library(JOBS)
 
 We have example input data [here](https://github.com/LidaWangPSU/JOBS/blob/main/example_data/). Data were subsetted from brain bulk and single cell eQTLs as an example to run the script.
 
-Input includes
-* Effect size: A matrix of eqtls across bulk and single cell, first col: gene-snp pair; second col: bulk effect size; 3+ cols: cell type specific eqtls
-* S.E.: The same dimension matrix of eqtls standard deviation across bulk and single cell, first col: gene-snp pair; second col: bulk effect size se; 3+ col: cell type specific eqtls se. S.E. file should be 1-1 match with effect size
+The input consists of:
+
+(1) Effect size matrix: This matrix captures eQTLs across both bulk and single-cell data. It includes the following columns:
+
+Column 1: Gene-SNP pair identifiers.
+Column 2: Effect size for bulk data.
+Columns 3+: Cell type-specific eQTL effect sizes.
+
+(2) Standard error matrix (S.E.): This matrix has the same dimensions as the effect size matrix, representing the standard errors for the corresponding eQTL effect sizes. It includes:
+
+Column 1: Gene-SNP pair identifiers (matching the effect size matrix).
+Column 2: Standard error of the effect size in bulk data.
+Columns 3+: Standard errors for the cell type-specific eQTL effect sizes.
 
 (It is acceptable to have missing data in the input. We will analyze all gene-SNP pairs unless sc-eQTL data is entirely missing for all cell types. In other cases, we will simply ignore the missing values and keep "NA" in the output.)
 
