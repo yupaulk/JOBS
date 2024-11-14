@@ -1,0 +1,67 @@
+---
+title: "JOBS-replicate"
+author: "Paul K. Yu"
+date: "2024-11-14"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Load libraries
+```{r}
+devtools::install_github("LidaWangPSU/JOBS/JOBS")
+library(JOBS)
+```
+
+# Get example data
+```{r}
+library(data.table)
+beta <- as.data.frame(fread("example_data/example_beta_chr22.txt.gz"))
+se <- as.data.frame(fread("example_data/example_beta_se_chr22.txt.gz"))
+```
+
+# Run JOBS
+```{r}
+jobs_eqtls <- jobs(beta,se)
+```
+
+# Validate JOBS replication
+```{r}
+jobs_beta <- as.data.frame(fread("example_data/jobs_beta_chr22.txt.gz"))
+jobs_se <- as.data.frame(fread("example_data/jobs_beta_se_chr22.txt.gz"))
+
+# Convert to numeric
+jobs_eqtls$eqtls_new[-1] <- lapply(jobs_eqtls$eqtls_new[-1], as.numeric)
+jobs_eqtls$eqtls_se_new[-1] <- lapply(jobs_eqtls$eqtls_se_new[-1], as.numeric)
+
+print("Checking JOBS beta...")
+cols_eqtls <- colnames(jobs_eqtls$eqtls_new)
+cols_beta <- colnames(jobs_beta)
+if(identical(cols_eqtls, cols_beta)) {
+  for(col in cols_eqtls) {
+    # Compare each column one at a time
+    print(identical(jobs_eqtls$eqtls_new[[col]], jobs_beta[[col]]))
+  }
+} else {
+  print("Columns not identical")
+}
+
+print("Checking JOBS se...")
+cols_eqtls <- colnames(jobs_eqtls$eqtls_se_new)
+cols_se <- colnames(jobs_se)
+if(identical(cols_eqtls, cols_se)) {
+  for(col in cols_eqtls) {
+    # Compare each column one at a time
+    print(identical(jobs_eqtls$eqtls_se_new[[col]], jobs_se[[col]]))
+  }
+} else {
+  print("Columns not identical")
+}
+
+```
+
+```{r}
+sessionInfo()
+```
