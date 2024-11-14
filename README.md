@@ -15,14 +15,15 @@ Here, we propose a JOint model viewing Bk-eQTLs as a weighted sum of Sc-eQTLs (J
 It is developed and maintained by Lida Wang at [Dajiang Liu's Group](https://dajiangliu.blog).
 
 ## Installation
-The package is hosted on github, which allows installation and update to be very easy. First, make sure you have the dplyr, data.table, tidyr, R.utils, pracma, and quadprog packages installed.
+JOBS is hosted on GitHub, making it easy to install and update. Before installing, ensure that the following R packages are installed: dplyr, data.table, tidyr, R.utils, pracma, and quadprog.
 
-```
+### Steps to Install:
+```r
 install.packages("devtools")
 library(devtools)
 ```
 
-Then you could install JOBS from the repository here.
+Install JOBS from the GitHub repository:
 
 ```
 devtools::install_github("LidaWangPSU/JOBS/JOBS")
@@ -69,7 +70,7 @@ This matrix has the same dimensions as the effect size matrix and represents the
    
 We have example input data [here](https://github.com/LidaWangPSU/JOBS/blob/main/example_data/). Data were subsetted from brain bulk and single cell eQTLs as an example to run the script.
 
-```
+```r
 library(data.table)
 beta <- as.data.frame(fread("~/example_beta_chr22.txt.gz"))
 se <- as.data.frame(fread("~/example_beta_se_chr22.txt.gz"))
@@ -79,14 +80,14 @@ se <- as.data.frame(fread("~/example_beta_se_chr22.txt.gz"))
 #### JOBS Step 1: cell type weights
 Here, we used Non-negative least squares to estimate cell type weights.
 You can also specify the weights by yourself, e.g. estimated from scRNAseq data or other methods.
-```
+```r
 weight <-jobs.nnls.weights(beta,se)
 ```
 
 
 #### JOBS Step 2: refine eQTLs edtimation 
 - **weight**: K numeric numbers for K cell types, add up to 1.
-```
+```r
 jobs_eqtls <- jobs.eqtls(beta,se,weight)
 ```
 
