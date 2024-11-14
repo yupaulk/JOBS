@@ -39,6 +39,8 @@ Input includes
 * Effect size: A matrix of eqtls across bulk and single cell, first col: gene-snp pair; second col: bulk effect size; 3+ cols: cell type specific eqtls
 * S.E.: The same dimension matrix of eqtls standard deviation across bulk and single cell, first col: gene-snp pair; second col: bulk effect size se; 3+ col: cell type specific eqtls se. S.E. file should be 1-1 match with effect size
 
+(It is acceptable to have missing data in the input. We will analyze all gene-SNP pairs unless sc-eQTL data is entirely missing for all cell types. In other cases, we will simply ignore the missing values and keep "NA" in the output.)
+
 |    Gene-snp pair    |      Bulk     | Cell type 1  |  Cell type 2 | ...... |  Cell type k |
 | ------------------- |      ----     | -----------  |  ----------- | ------ |  ----------- |
 | ENSG00000XXXXX-snp1 | xx(beta or se)|xx(beta or se)|xx(beta or se)| ...... |xx(beta or se)|  
