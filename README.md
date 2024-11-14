@@ -17,7 +17,7 @@ It is developed and maintained by Lida Wang at [Dajiang Liu's Group](https://daj
 ## Installation
 JOBS is hosted on GitHub, making it easy to install and update. Before installing. The following R packages are required: dplyr, data.table, tidyr, R.utils, pracma, and quadprog.
 
-### Steps to Install:
+Steps to Install:
 ```r
 install.packages("devtools")
 library(devtools)
