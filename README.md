@@ -15,7 +15,7 @@ Here, we propose a JOint model viewing Bk-eQTLs as a weighted sum of Sc-eQTLs (J
 It is developed and maintained by Lida Wang at [Dajiang Liu's Group](https://dajiangliu.blog).
 
 ## Installation
-JOBS is hosted on GitHub, making it easy to install and update. Before installing, ensure that the following R packages are installed: dplyr, data.table, tidyr, R.utils, pracma, and quadprog.
+JOBS is hosted on GitHub, making it easy to install and update. Before installing. The following R packages are required: dplyr, data.table, tidyr, R.utils, pracma, and quadprog.
 
 ### Steps to Install:
 ```r
