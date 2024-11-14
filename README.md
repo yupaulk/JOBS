@@ -78,13 +78,14 @@ se <- as.data.frame(fread("~/example_beta_se_chr22.txt.gz"))
 ### Run JOBS
 #### JOBS Step 1: cell type weights
 Here, we used Non-negative least squares to estimate cell type weights.
-You can also specify the weights by yourself, e.g. estimated from scRNAseq data or other methods
+You can also specify the weights by yourself, e.g. estimated from scRNAseq data or other methods.
 ```
 weight <-jobs.nnls.weights(beta,se)
 ```
 
 
 #### JOBS Step 2: refine eQTLs edtimation 
+- **weights**: K numeric numbers for K cell types, add up to 1.
 ```
 jobs_eqtls <- jobs.eqtls(beta,se,weight)
 ```
