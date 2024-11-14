@@ -80,7 +80,7 @@ se <- as.data.frame(fread("~/example_beta_se_chr22.txt.gz"))
 Here, we used Non-negative least squares to estimate cell type weights.
 You can also specify the weights by yourself, e.g. estimated from scRNAseq data or other methods.
 ```r
-weight <-jobs.nnls.weights(beta,se)
+weight <- jobs.nnls.weights(beta,se)
 ```
 
 
