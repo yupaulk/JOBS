@@ -66,7 +66,7 @@ This matrix has the same dimensions as the effect size matrix and represents the
 | ENSG00000XXXXX-snp1 |    0.0071     |    0.0316    |    0.0316    | ...... |    0.0316    |  
 | ENSG00000XXXXX-snp2 |    0.0071     |    0.0316    |    0.0316    | ...... |    0.0316    |
 
-#### It is acceptable to have missing data in the input. We will analyze all gene-SNP pairs unless sc-eQTL data is entirely missing for all cell types. In other cases, we will simply ignore the missing values and keep "NA" in the output.
+- **It is acceptable to have missing data in the input. We will analyze all gene-SNP pairs unless sc-eQTL data is entirely missing for all cell types. In other cases, we will simply ignore the missing values and keep "NA" in the output. **
 
 ```
 library(data.table)
