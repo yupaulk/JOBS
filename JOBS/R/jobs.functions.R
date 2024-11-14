@@ -6,9 +6,7 @@
 #'
 #' @examples jobs.function(eqtls,eqtls_se)
 jobs.eqtls<-function(eqtls,eqtls_se){
-
   df<-eqtls
-
   df_s<-eqtls_se
 
   cat(paste0("Check NA in sc-eqtl \n"))
@@ -20,6 +18,8 @@ jobs.eqtls<-function(eqtls,eqtls_se){
     cat(paste0(length(snps)," NA in ",names," \n"))
   }
 
+  df[is.na(df)]<-0
+  df_s[is.na(df_s)]<-1
 
   x_old<-df[,3:ncol(df)]
 
