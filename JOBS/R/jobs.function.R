@@ -1,8 +1,11 @@
-##eqtls: a matrix of eqtls across bulk and single cell, first col: gene-snp pair; second col: bulk effect size; 3+ cols: cell type specific eqtls
-##eqtls_se: a matrix of eqtls standard deviation across bulk and single cell, first col: gene-snp pair; second col: bulk effect size se; 3+ col: cell type specific eqtls se
-##eqtls and eqtls_se should be 1-1 match
-##eqtls<-beta_m; eqtls_se<-se_m
-jobs<-function(eqtls,eqtls_se){
+#' Title
+#' @param eqtls 
+#' @param eqtls_se 
+#' @return
+#' @export
+#'
+#' @examples jobs.function(eqtls,eqtls_se)
+jobs.function<-function(eqtls,eqtls_se){
   
   df<-eqtls
   
@@ -101,7 +104,7 @@ jobs<-function(eqtls,eqtls_se){
   
   cat("Finished! \n")
   
-  res<-list("cell_type_proportion"=frac,"eqtls_new"=as.data.frame(df_new),"eqtls_se_new"=as.data.frame(df_s_new))
+  res<-list("cell_type_weights"=frac,"eqtls_new"=as.data.frame(df_new),"eqtls_se_new"=as.data.frame(df_s_new))
   
   return(res)
 }
