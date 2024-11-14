@@ -68,7 +68,7 @@ jobs_eqtls <- jobs.eqtls(beta,se,weight)
 ### Output results
 The output includes:
 * Refined effect size: in the same format as effect size input
-* Refined S.E:in the same format as s.e. input
+* Refined S.E: in the same format as s.e. input
 
 
 ## Contact
