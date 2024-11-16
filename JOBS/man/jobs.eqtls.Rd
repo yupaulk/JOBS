@@ -4,11 +4,20 @@
 \alias{jobs.eqtls}
 \title{Title}
 \usage{
-jobs.eqtls(beta, se, weight)
+jobs.eqtls(beta, se, weight, COR)
+}
+\arguments{
+\item{beta}{This matrix contains eQTL effect sizes for both bulk and single-cell data.}
+
+\item{se}{This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes.}
+
+\item{weight}{K numeric numbers for K cell types, add up to 1.}
+
+\item{COR}{Whether consider correlation across cell types, default is FALSE.}
 }
 \description{
 Title
 }
 \examples{
-jobs.function(eqtls,eqtls_se,weight)
+jobs.function(beta,se,weight,COR)
 }

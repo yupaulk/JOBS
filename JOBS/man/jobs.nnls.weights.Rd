@@ -6,9 +6,14 @@
 \usage{
 jobs.nnls.weights(beta, se)
 }
+\arguments{
+\item{beta}{This matrix contains eQTL effect sizes for both bulk and single-cell data.}
+
+\item{se}{This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes.}
+}
 \description{
 Title
 }
 \examples{
-jobs.function(eqtls,eqtls_se,weights)
+jobs.function(beta,se,weights)
 }

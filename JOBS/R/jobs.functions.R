@@ -1,12 +1,12 @@
 #' Title
-#' @param beta
-#' @param se
-#' @param weight
-#' @param COR
+#' @param beta This matrix contains eQTL effect sizes for both bulk and single-cell data.
+#' @param se This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes.
+#' @param weight K numeric numbers for K cell types, add up to 1.
+#' @param COR Whether consider correlation across cell types, default is FALSE.
 #' @return
 #' @export
 #'
-#' @examples jobs.function(eqtls,eqtls_se,weight)
+#' @examples jobs.function(beta,se,weight,COR)
 jobs.eqtls<-function(beta,se,weight,COR){
   if(is.null(COR)){
     COR=F
@@ -120,12 +120,12 @@ jobs.eqtls<-function(beta,se,weight,COR){
 
 
 #' Title
-#' @param eqtls
-#' @param eqtls_se
+#' @param beta This matrix contains eQTL effect sizes for both bulk and single-cell data.
+#' @param se This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes.
 #' @return
 #' @export
 #'
-#' @examples jobs.function(eqtls,eqtls_se,weights)
+#' @examples jobs.function(beta,se,weights)
 jobs.nnls.weights<-function(beta,se){
   df<-as.data.frame(beta)
   df_s<-as.data.frame(se)
