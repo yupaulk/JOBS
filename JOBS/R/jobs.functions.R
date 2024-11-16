@@ -7,11 +7,12 @@
 #' @export
 #'
 #' @examples jobs.function(beta,se,weight,COR)
-jobs.eqtls<-function(beta,se,weight,COR){
+jobs.eqtls<-function(beta,se,weight,COR=NULL){
   if(is.null(COR)){
     COR=F
   }
 
+  #print(COR)
   df<-beta
   df_s<-se
 
@@ -59,8 +60,8 @@ jobs.eqtls<-function(beta,se,weight,COR){
     pval_min<-apply(pval,1,min)
     insig<-which(pval_min>0.05)
     cor_m<-cor(x_old[insig,])
+    cor_m<-as.data.frame(cor_m)
   }
-  cor_m<-as.data.frame(cor_m)
 
 
   se_new<-se
