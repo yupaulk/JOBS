@@ -1,13 +1,5 @@
-#' Title
-#' @param beta
-#' @param se
-#' @param weight
-#' @param COR
-#' @return
-#' @export
-#'
-#' @examples jobs.function(eqtls,eqtls_se,weight)
-jobs.eqtls<-function(beta,se,weight,COR){
+library(MASS)
+jobs.eqtls.new<-function(beta,se,weight,COR){
   if(is.null(COR)){
     COR=F
   }
@@ -117,66 +109,3 @@ jobs.eqtls<-function(beta,se,weight,COR){
 
   return(res)
 }
-
-
-#' Title
-#' @param eqtls
-#' @param eqtls_se
-#' @return
-#' @export
-#'
-#' @examples jobs.function(eqtls,eqtls_se,weights)
-jobs.nnls.weights<-function(beta,se){
-  df<-as.data.frame(beta)
-  df_s<-as.data.frame(se)
-  ###check NA
-  #cat(paste0("Check NA in sc-eqtl \n"))
-  na.list<-list()
-  for(r in 3:ncol(df_s)){
-    snps<-df[which(is.na(df[,r])),1]
-    names<-colnames(df)[r]
-    na.list[[names]]<-snps
-    #cat(paste0(length(snps)," NA in ",names," \n"))
-  }
-
-  df[is.na(df)]<-0
-  df_s[is.na(df_s)]<-1
-  ###check if all sc-eqtl effects are 0
-  x_old<-df[,3:ncol(df)]
-  #cat(paste0("Check if all sc-eqtl effects are 0 \n"))
-  #cat(paste0(nrow(x_old), " gene-snp pairs in total \n"))
-  sum1<-rowSums(abs(x_old))
-  df<-df[which(sum1!=0),]
-  #cat(paste0(nrow(df), " gene-snp pairs passed the filtering \n"))
-  df_s<-df_s[which(sum1!=0),]
-
-  ########estimate frac by NNLS
-  pair<-df[,1]
-  Y<-df[,2]
-  X<-as.matrix(df[,3:ncol(df)])
-
-  cat(paste0("Step1: Estimating cell type weights using NNLS \n"))
-  library(pracma)
-  Aeq <- matrix(rep(1, ncol(X)), nrow= 1)
-  beq <- c(1)
-
-  # Lower and upper bounds of the parameters, i.e [0, 1]
-  lb <- rep(0, ncol(X))
-  ub <- rep(1, ncol(X))
-
-  # And solve:
-  frac<-lsqlincon(X, Y, Aeq= Aeq, beq= beq, lb= lb, ub= ub)
-
-
-  frac<-t(as.data.frame(frac))
-
-  colnames(frac)<-colnames(X)
-
-  weight<-frac
-
-  weight<-as.numeric(weight)
-
-  return(weight)
-}
-
-
