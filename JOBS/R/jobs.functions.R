@@ -108,8 +108,8 @@ jobs.eqtls<-function(beta,se,weight,COR=NULL){
   for(r in 3:ncol(df_s)){
     names<-colnames(df)[r]
     snps<-na.list[[names]]
-    df_new[na.omit(match(snps,df_new)),r]<-NA
-    df_s_new[na.omit(match(snps,df_new)),r]<-NA
+    df_new[na.omit(match(snps,df_new[,1])),r]<-NA
+    df_s_new[na.omit(match(snps,df_new[,1])),r]<-NA
   }
 
   cat("Finished! \n")
