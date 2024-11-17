@@ -1,12 +1,12 @@
 #' Title
-#' @param beta This matrix contains eQTL effect sizes for both bulk and single-cell data.
-#' @param se This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes.
+#' @param beta This matrix contains eQTL effect sizes for both bulk and single-cell data. Column 1: Gene-SNP pair identifiers. Column 2: Bulk effect size. Columns 3+: Cell type-specific eQTL effect sizes.
+#' @param se This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes. Column 1: Gene-SNP pair identifiers (should match the effect size matrix). Column 2: Bulk effect size standard error. Columns 3+: Standard errors for the cell type-specific eQTL effect sizes.
 #' @param weight K numeric numbers for K cell types, add up to 1.
 #' @param COR Whether consider correlation across cell types, default is FALSE.
 #' @return
 #' @export
 #'
-#' @examples jobs.function(beta,se,weight,COR)
+#' @examples jobs.eqtls(beta,se,weight,COR)
 jobs.eqtls<-function(beta,se,weight,COR=NULL){
   if(is.null(COR)){
     COR=F
@@ -121,12 +121,12 @@ jobs.eqtls<-function(beta,se,weight,COR=NULL){
 
 
 #' Title
-#' @param beta This matrix contains eQTL effect sizes for both bulk and single-cell data.
-#' @param se This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes.
+#' @param beta This matrix contains eQTL effect sizes for both bulk and single-cell data. Column 1: Gene-SNP pair identifiers. Column 2: Bulk effect size. Columns 3+: Cell type-specific eQTL effect sizes.
+#' @param se This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes. Column 1: Gene-SNP pair identifiers (should match the effect size matrix). Column 2: Bulk effect size standard error. Columns 3+: Standard errors for the cell type-specific eQTL effect sizes.
 #' @return
 #' @export
 #'
-#' @examples jobs.function(beta,se,weights)
+#' @examples jobs.nnls.weights(beta,se,weight)
 jobs.nnls.weights<-function(beta,se){
   df<-as.data.frame(beta)
   df_s<-as.data.frame(se)
