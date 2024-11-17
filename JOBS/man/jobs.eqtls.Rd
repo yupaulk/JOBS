@@ -4,12 +4,12 @@
 \alias{jobs.eqtls}
 \title{Title}
 \usage{
-jobs.eqtls(beta, se, weight, COR)
+jobs.eqtls(beta, se, weight, COR = NULL)
 }
 \arguments{
-\item{beta}{This matrix contains eQTL effect sizes for both bulk and single-cell data.}
+\item{beta}{This matrix contains eQTL effect sizes for both bulk and single-cell data. Column 1: Gene-SNP pair identifiers. Column 2: Bulk effect size. Columns 3+: Cell type-specific eQTL effect sizes.}
 
-\item{se}{This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes.}
+\item{se}{This matrix has the same dimensions as the effect size matrix and represents the standard errors associated with the eQTL effect sizes. Column 1: Gene-SNP pair identifiers (should match the effect size matrix). Column 2: Bulk effect size standard error. Columns 3+: Standard errors for the cell type-specific eQTL effect sizes.}
 
 \item{weight}{K numeric numbers for K cell types, add up to 1.}
 
@@ -19,5 +19,5 @@ jobs.eqtls(beta, se, weight, COR)
 Title
 }
 \examples{
-jobs.function(beta,se,weight,COR)
+jobs.eqtls(beta,se,weight,COR)
 }
