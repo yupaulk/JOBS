@@ -85,7 +85,16 @@ jobs.eqtls<-function(beta,se,weight,COR=NULL){
       A<-rbind( as.numeric(weight_total[x,]),diag(ncol(x_new)))
       cov_m<-as.numeric(df_s[x,3:ncol(df_s)])*cor_m*as.numeric(df_s[x,3:ncol(df_s)])
       omega<-as.matrix(rbind(c(df_s[x,2]^2,rep(0,nrow(cor_m))),cbind(0,cov_m)))
-      omega_inv<-ginv(omega)
+
+      omega_inv <- tryCatch({
+        ginv(omega)
+      }, error=function(e){})
+
+      if(is.null(omega_inv)){
+        omega<-diag(diag(omega))
+        omega_inv<-ginv(omega)
+      }
+
       v<-ginv(t(A)%*%omega_inv%*%A)
       s<-v%*%t(A)%*%omega_inv%*%t(as.matrix(df[x,2:ncol(df)]))
       return(c(diag(v),s))
