@@ -26,7 +26,11 @@ jobs.eqtls<-function(beta,se,weight,COR=NULL){
   }
 
   df[is.na(df)]<-0
-  df_s[is.na(df_s)]<-1
+  #df_s[is.na(df_s)]<-1
+  for(c in 3:ncol(df_s)){
+    df_s[is.na(df_s[,c]),c]<-mean(df_s[,c],na.rm=T)
+  }
+
 
   x_old<-df[,3:ncol(df)]
 
@@ -149,8 +153,13 @@ jobs.nnls.weights<-function(beta,se){
     #cat(paste0(length(snps)," NA in ",names," \n"))
   }
 
+
   df[is.na(df)]<-0
-  df_s[is.na(df_s)]<-1
+  #df_s[is.na(df_s)]<-1
+  for(c in 3:ncol(df_s)){
+    df_s[is.na(df_s[,c]),c]<-mean(df_s[,c],na.rm=T)
+  }
+
   ###check if all sc-eqtl effects are 0
   x_old<-df[,3:ncol(df)]
   #cat(paste0("Check if all sc-eqtl effects are 0 \n"))
