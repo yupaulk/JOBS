@@ -18,4 +18,5 @@ Imports:
   tidyr,
   R.utils,
   pracma,
-  quadprog
+  quadprog,
+  MASS
