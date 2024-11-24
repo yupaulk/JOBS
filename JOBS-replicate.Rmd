@@ -24,7 +24,12 @@ se <- as.data.frame(fread("example_data/example_beta_se_chr22.txt.gz"))
 
 # Run JOBS
 ```{r}
-jobs_eqtls <- jobs(beta,se)
+# JOBS Step 1: cell type weights
+weight <- jobs.nnls.weights(beta,se)
+
+# JOBS Step 2: refine eQTLs edtimation
+jobs_eqtls <- jobs.eqtls(beta,se,weight,COR=F)
+
 ```
 
 # Validate JOBS replication
